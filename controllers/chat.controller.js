@@ -37,14 +37,14 @@ const test = ( req, res ) => {
      } );
      promocion1.save();
      promocion2.save();*/
-    // const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
-    // const sucursal1 = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: 'Miraflores', calle: 'Naciones Unidas', numero: '10' } );
+     const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
+     const sucursal1 = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: 'Miraflores', calle: 'Naciones Unidas', numero: '10' } );
     /* const producto1 = new Producto( { nombre: 'Mesa', precio: '100', forma: 'Redonda' } );
      const producto2 = new Producto( { nombre: 'Mesa', precio: '70', forma: 'Cuadrada' } );
-     const producto3 = new Producto( { nombre: 'Silla', precio: '50' } );
-    // sucursal.save();
-    // sucursal1.save();
-     producto1.save(); 
+     const producto3 = new Producto( { nombre: 'Silla', precio: '50' } );*/
+     sucursal.save();
+     sucursal1.save();
+     /*producto1.save(); 
      producto2.save();   
      producto3.save();*/
     // promocion.save();|
