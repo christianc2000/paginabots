@@ -1,10 +1,6 @@
 const { Schema, model, default: mongoose } = require('mongoose');
 
 const ValoracionSchema = Schema({
-    estrella: {
-        type: String,
-        default: '5 estrellas'
-    },
     opinion: {
         type: String,
         allowNull: true
