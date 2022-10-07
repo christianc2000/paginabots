@@ -202,7 +202,7 @@ const ApiFacebook = async( facebookId ) => {
    console.log('datos del usuario last name: '+data.last_name);
    console.log('datos del usuario foto: '+data.profile_pic);
 
-   /*  const usuario = await Prospecto.findOne({ facebookId });
+     const usuario = await Prospecto.findOne({ facebookId });
     if ( !usuario ) {
         await Prospecto.create({ 
             nombre: data.first_name + data.last_name,
@@ -218,7 +218,7 @@ const ApiFacebook = async( facebookId ) => {
             const ingresoUsuario = new Ingreso({ prospecto: usuario._id, entrada: new Date().toLocaleDateString() });
             ingresoUsuario.save();
         }
-    }*/
+    }
 }
 const envio = ( resultado, senderId, tipo = 'text' ) => {
     let peticion = {};
