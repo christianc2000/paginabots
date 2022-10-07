@@ -14,7 +14,7 @@ const controllerDialogFlow = async( resultado, senderId ) => {
     let peticion = {};
     let respuesta;
     console.log('antes del prospecto');
-    ApiFacebook( senderId );
+    //ApiFacebook( senderId );
     console.log('después del prospecto');
     switch (resultado.intent.displayName) {
         case 'Promocion': 
