@@ -14,7 +14,7 @@ const controllerDialogFlow = async( resultado, senderId ) => {
     let peticion = {};
     let respuesta;
     console.log('antes del prospecto');
-    //ApiFacebook( senderId );
+    ApiFacebook( senderId );
     console.log('después del prospecto');
     switch (resultado.intent.displayName) {
         case 'Promocion': 
@@ -188,7 +188,8 @@ const Sucursales = async() => {
     return listar;
 }
 const ApiFacebook = async( facebookId ) => {
-    const url = `https://graph.facebook.com/v15.0/${ facebookId }?fields=first_name,last_name,profile_pic&access_token=${ config.FB_PAGE_TOKEN }`;
+   console.log(facebookId);
+    /* const url = `https://graph.facebook.com/v15.0/${ facebookId }?fields=first_name,last_name,profile_pic&access_token=${ config.FB_PAGE_TOKEN }`;
     const { data } = await axios.get( url );
     const usuario = await Prospecto.findOne({ facebookId });
     if ( !usuario ) {
@@ -206,7 +207,7 @@ const ApiFacebook = async( facebookId ) => {
             const ingresoUsuario = new Ingreso({ prospecto: usuario._id, entrada: new Date().toLocaleDateString() });
             ingresoUsuario.save();
         }
-    }
+    }*/
 }
 const envio = ( resultado, senderId, tipo = 'text' ) => {
     let peticion = {};
