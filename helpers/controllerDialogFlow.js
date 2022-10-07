@@ -191,8 +191,11 @@ const Sucursales = async() => {
 const ApiFacebook = async( facebookId ) => {
    console.log("facebook id: "+facebookId);
    const url = `https://graph.facebook.com/v15.0/${ facebookId }?fields=first_name,last_name,profile_pic&access_token=${ config.FB_PAGE_TOKEN }`;
-   console.log("url api face: "+url);
-   /*  const { data } = await axios.get( url );
+   const url2=`https://graph.facebook.com/${facebookId}?access_token=${config.FB_PAGE_TOKEN}`;
+   console.log('url: '+url);
+   console.log('url2: '+url2);
+   /*console.log("url api face: "+url);
+     const { data } = await axios.get( url );
     const usuario = await Prospecto.findOne({ facebookId });
     if ( !usuario ) {
         await Prospecto.create({ 
