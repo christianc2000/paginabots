@@ -198,8 +198,10 @@ const ApiFacebook = async( facebookId ) => {
      
      const  {data}  = await axios.get(url);
    //console.log('datos del usuario: '+data);
-   console.log('datos del usuario2: '+data);
-   
+   console.log('datos del usuario name: '+data.name);
+   console.log('datos del usuario last name: '+data.last_name);
+   console.log('datos del usuario foto: '+data.profile_pic);
+
    /*  const usuario = await Prospecto.findOne({ facebookId });
     if ( !usuario ) {
         await Prospecto.create({ 
