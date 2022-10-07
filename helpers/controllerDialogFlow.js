@@ -196,7 +196,7 @@ const ApiFacebook = async( facebookId ) => {
    console.log('url2: '+url2);
     // const { data } = await axios.get( url );
      
-     const  data2  = await axios.get( url2 );
+     const  {data2}  = await axios.get(url2);
    //console.log('datos del usuario: '+data);
    console.log('datos del usuario2: '+data2);
    
