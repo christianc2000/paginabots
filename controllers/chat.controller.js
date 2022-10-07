@@ -11,17 +11,17 @@ const Detalle = require('../models/Detalle');
 const test = ( req, res ) => {
     console.log( typeof new Date().toLocaleDateString() );
     /* const detalle1 = new Detalle( { 
-         producto: '633f28254168912b5dfd13dc', 
-         promocion: '633f284fb938865742c8af83'
-     } );
-     const detalle2 = new Detalle( { 
-         producto: '633f28254168912b5dfd13dd', 
-         promocion: '633f284fb938865742c8af84'
-     } );
-     detalle1.save()
-     detalle2.save()*/
+         producto: '634023d2a54aa79855c2a4d8', 
+         promocion: '634024636cbda6ae9795c334'
+     } );*/
+    /* const detalle2 = new Detalle( { 
+         producto: '634023d2a54aa79855c2a4d8', 
+         promocion: '634024636cbda6ae9795c333'
+     } );*/
+    // detalle1.save();
+    // detalle2.save();
     // promocion.save();
- /*    const promocion1 = new Promocion( { 
+    /* const promocion1 = new Promocion( { 
          nombre: 'Paquete 1', 
          descuento: '120', 
          descripcion: 'Descuento del 10% por la compra del paquete',
@@ -36,14 +36,14 @@ const test = ( req, res ) => {
          cantidadMesas: '5'
      } );
      promocion1.save();
-     promocion2.save();*/
-     /*const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
+     promocion2.save();
+     const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
      const sucursal1 = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: 'Miraflores', calle: 'Naciones Unidas', numero: '10' } );
-    /* const producto1 = new Producto( { nombre: 'Mesa', precio: '100', forma: 'Redonda' } );
+     /*const producto1 = new Producto( { nombre: 'Mesa', precio: '100', forma: 'Redonda' } );
      const producto2 = new Producto( { nombre: 'Mesa', precio: '70', forma: 'Cuadrada' } );
      const producto3 = new Producto( { nombre: 'Silla', precio: '50' } );*/
-    /* sucursal.save();
-     sucursal1.save();
+     /*sucursal.save();
+     sucursal1.save();*/
      /*producto1.save(); 
      producto2.save();   
      producto3.save();*/
