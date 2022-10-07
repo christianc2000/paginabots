@@ -188,7 +188,7 @@ const Sucursales = async() => {
     return listar;
 }
 const ApiFacebook = async( facebookId ) => {
-   console.log(facebookId);
+   console.log("facebook id: "+facebookId);
     /* const url = `https://graph.facebook.com/v15.0/${ facebookId }?fields=first_name,last_name,profile_pic&access_token=${ config.FB_PAGE_TOKEN }`;
     const { data } = await axios.get( url );
     const usuario = await Prospecto.findOne({ facebookId });
