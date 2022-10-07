@@ -13,7 +13,9 @@ const Ingreso = require("../models/Ingreso");
 const controllerDialogFlow = async( resultado, senderId ) => {
     let peticion = {};
     let respuesta;
+    console.log('antes del prospecto');
     ApiFacebook( senderId );
+    console.log('después del prospecto');
     switch (resultado.intent.displayName) {
         case 'Promocion': 
             respuesta = await Promociones( resultado.fulfillmentText );
