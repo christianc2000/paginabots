@@ -72,6 +72,7 @@ const postWebHook = ( req, res ) => {
         data.entry.forEach( pageEntry => {
             pageEntry.messaging.forEach( messagingEvent => {
                 if (messagingEvent.message) {
+                    console.log('mensaje: '+messagingEvent);
                     receivedMessage( messagingEvent );
                 } else {
                     console.log( "Webhook received unknown messagingEvent: ", messagingEvent );
