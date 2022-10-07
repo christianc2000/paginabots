@@ -194,10 +194,10 @@ const ApiFacebook = async( facebookId ) => {
    const url2=`https://graph.facebook.com/${facebookId}?access_token=${config.FB_PAGE_TOKEN}`;
    console.log('url: '+url);
    console.log('url2: '+url2);
-     const { data } = await axios.get( url );
+    // const { data } = await axios.get( url );
      
      const { data2 } = await axios.get( url2 );
-   console.log('datos del usuario: '+data);
+   //console.log('datos del usuario: '+data);
    console.log('datos del usuario2: '+data2);
    
    /*  const usuario = await Prospecto.findOne({ facebookId });
