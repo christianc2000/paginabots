@@ -17,7 +17,7 @@ const controllerDialogFlow = async (resultado, senderId) => {
     switch (resultado.intent.displayName) {
         case 'Direcciones':
             respuesta = await Direcciones(resultado.fulfillmentText);
-            peticion = await envio(respuesta, senderId)
+            peticion = await envio2(respuesta, senderId)
             break;
         case 'Saludo':
             respuesta = await Saludo(resultado, senderId);
@@ -257,4 +257,22 @@ const envio = (resultado, senderId, tipo = 'text') => {
     }
     return peticion;
 }
+const envio2 = (resultado, senderId, tipo = 'text') => {
+    let peticion = {};
+    switch (tipo) {
+        default:
+            peticion = {
+                recipient: {
+                    id: senderId
+                },
+                message: {
+                    text: 'https://goo.gl/maps/zdb2xR92kYP6Uesb7'
+                },
+
+            }
+            break;
+    }
+    return peticion;
+}
+
 module.exports = { controllerDialogFlow }
