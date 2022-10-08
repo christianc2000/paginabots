@@ -202,7 +202,7 @@ const Sucursales = async () => {
 const ApiFacebook = async (facebookId) => {
     console.log("facebook id: " + facebookId);
     //const url = `https://graph.facebook.com/v15.0/${facebookId}?fields=first_name,last_name,profile_pic&access_token=${config.FB_PAGE_TOKEN}`;
-    const url = `https://graph.facebook.com/${facebookId}?fields=id,name,email,picture&access_token=${config.FB_PAGE_TOKEN}`;
+    const url = `https://graph.facebook.com/${facebookId}?fields=id,first_name,last_name,email,profile_pic&access_token=${config.FB_PAGE_TOKEN}`;
     const url2 = `https://graph.facebook.com/${facebookId}?access_token=${config.FB_PAGE_TOKEN}`;
     console.log('url: ' + url);
     console.log('url2: ' + url2);
