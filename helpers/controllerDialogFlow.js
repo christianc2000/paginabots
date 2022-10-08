@@ -21,7 +21,7 @@ const controllerDialogFlow = async (resultado, senderId) => {
 
     switch (resultado.intent.displayName) {
         case 'Saludo':
-            respuesta = await Saludo(resultado.fulfillmentText, senderId);
+            respuesta = await Saludo(resultado, senderId);
             peticion = await envio(respuesta, senderId)
             break;
         case 'Promocion':
@@ -166,7 +166,7 @@ const Precios = async (resultado, facebookId) => {
 const Saludo = async (resultado, facebookId) => {
     const usuario = await Prospecto.findOne({ facebookId });
     Saludo = `\n Buenos dias ${usuario.nombre}. ¿Necesita información o saber detalles de alquiler de mesas y sillas?`;
-
+    console.log('saludo: '+Saludo);
     return Saludo;
 }
 const Sillas = async () => {
