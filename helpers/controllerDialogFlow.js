@@ -155,8 +155,9 @@ const PedirNombreCelular = async (resultado, facebookId) => {
 }
 const Precios = async (resultado, facebookId) => {
     const obtenerTodosAlquileres = await Producto.find();
-    let listar = 'Los precios de alquileres de sillas y mesas son los siguientes: ';
-    obtenerTodosAlquileres.forEach(pro => {
+    // listar = 'Los precios de alquileres de sillas y mesas son los siguientes: ';
+    let listar="¿Precio de que producto quisiera?";
+   /* obtenerTodosAlquileres.forEach(pro => {
         if (pro.nombre === 'Silla') {
             listar = listar + `\n * 10 ${pro.nombre} a ${pro.precio}Bs`;
         } else {
@@ -166,8 +167,8 @@ const Precios = async (resultado, facebookId) => {
                 listar = listar + `\n * 5 ${pro.nombre}s de forma ${pro.forma} a ${pro.precio} Bs`;
             }
         }
-    });
-    listar = listar + `\n ¿Quisiera realizar un pedido de mesas o sillas?`;
+    });*/
+    //listar = listar + `\n ¿Quisiera realizar un pedido de mesas o sillas?`;
     return listar;
 }
 const Sillas = async (resultado, facebookId) => {
