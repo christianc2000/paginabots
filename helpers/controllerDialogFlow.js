@@ -87,7 +87,7 @@ const valor = async (resultado, facebookId) => {
 }
 const Saludo = async (resultado, facebookId) => {
     const prospecto = await Prospecto.findOne({ facebookId });
-    return `Hola Mundo`+`\n, prospecto ${prospecto.nombre}`;
+    return `Buenos dias `+`${prospecto.nombre}`+`. ¿Necesita información o saber detalles de alquiler de mesas y sillas?`;
 }
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
