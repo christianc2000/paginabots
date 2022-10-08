@@ -20,10 +20,7 @@ const controllerDialogFlow = async (resultado, senderId) => {
     console.log('resultado: ' + resultado);
 
     switch (resultado.intent.displayName) {
-        case 'Saludo':
-            respuesta = await Saludo(resultado, senderId);
-            peticion = await envio(respuesta, senderId)
-            break;
+       
         case 'Promocion':
             respuesta = await Promociones(resultado.fulfillmentText);
             peticion = await envio(respuesta, senderId)
@@ -163,12 +160,7 @@ const Precios = async (resultado, facebookId) => {
     listar = listar + `\n ¿Quisiera realizar un pedido de mesas o sillas?`;
     return listar;
 }
-const Saludo = async (resultado, facebookId) => {
-    const usuario = await Prospecto.findOne({ facebookId });
-    Saludo = `\n Buenos dias ${usuario.nombre}. ¿Necesita información o saber detalles de alquiler de mesas y sillas?`;
-    console.log('saludo: '+Saludo);
-    return Saludo;
-}
+
 const Sillas = async () => {
     const obtenerSilla = await Producto.find();
     let listar = '';
