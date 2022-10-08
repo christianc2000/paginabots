@@ -96,7 +96,7 @@ const valor = async (resultado, facebookId) => {
     return resultado.fulfillmentText;
 }
 const Direcciones = async (resultado) => {
-    console.log('direcciones: '+resultado);
+    console.log('direcciones: ' + resultado);
     return resultado;
 }
 const Promociones = async (resultado) => {
@@ -266,7 +266,24 @@ const envio2 = (resultado, senderId, tipo = 'text') => {
                     id: senderId
                 },
                 message: {
-                    text: 'https://goo.gl/maps/zdb2xR92kYP6Uesb7'
+                    text: resultado,
+                    attachment: {
+                        type: "template",
+                        payload: {
+                            template_type: "generic",
+                            elements: [
+                                {
+                                    default_action: {
+                                        type: "web_url",
+                                        url: "https://goo.gl/maps/zdb2xR92kYP6Uesb7",
+                                        messenger_extensions: false,
+                                        webview_height_ratio: "tall",
+                                        fallback_url: "https://petersfancybrownhats.com/"
+                                    },
+                                }
+                            ]
+                        }
+                    }
                 },
 
             }
