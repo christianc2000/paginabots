@@ -96,6 +96,7 @@ const valor = async (resultado, facebookId) => {
     return resultado.fulfillmentText;
 }
 const Direcciones = async (resultado) => {
+    console.log('direcciones: '+resultado.fulfillmentText);
     return resultado.fulfillmentText;
 }
 const Promociones = async (resultado) => {
