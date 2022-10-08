@@ -15,10 +15,6 @@ const controllerDialogFlow = async (resultado, senderId) => {
     let respuesta;
     ApiFacebook(senderId);
     switch (resultado.intent.displayName) {
-        case 'Direcciones':
-            respuesta = await Direcciones(resultado.fulfillmentText);
-            peticion = await envio(respuesta, senderId)
-            break;
         case 'Saludo':
             respuesta = await Saludo(resultado, senderId);
             peticion = await envio(respuesta, senderId)
@@ -95,10 +91,7 @@ const valor = async (resultado, facebookId) => {
     }
     return resultado.fulfillmentText;
 }
-const Direcciones = async (resultado) => {
-    console.log('direcciones: ' + resultado);
-    return resultado;
-}
+
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
     // console.log(detalle)
