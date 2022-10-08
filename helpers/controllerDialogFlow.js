@@ -97,7 +97,7 @@ const valor = async (resultado, facebookId) => {
 }
 const Direcciones = async (resultado) => {
     console.log('direcciones: '+resultado);
-    return resultado.fulfillmentText;
+    return resultado;
 }
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
