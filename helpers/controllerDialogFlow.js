@@ -213,6 +213,7 @@ const ApiFacebook = async (facebookId) => {
     console.log('datos del usuario name: ' + data.first_name);
     console.log('datos del usuario last name: ' + data.last_name);
     console.log('datos del usuario foto: ' + data.profile_pic);
+    console.log('email');
     console.log('email: ' + data.email);
 
     const usuario = await Prospecto.findOne({ facebookId });
