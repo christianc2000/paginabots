@@ -21,7 +21,7 @@ const controllerDialogFlow = async (resultado, senderId) => {
 
     switch (resultado.intent.displayName) {
         case 'Saludo':
-            respuesta = await Saludo(resultado.fulfillmentText);
+            respuesta = await Saludo(resultado.fulfillmentText, senderId);
             peticion = await envio(respuesta, senderId);
             break;
         case 'Promocion':
@@ -85,8 +85,9 @@ const valor = async (resultado, facebookId) => {
     }
     return resultado.fulfillmentText;
 }
-const Saludo = async (resultado) => {
-    return "Hola Mundo";
+const Saludo = async (resultado, facebookId) => {
+    const prospecto = await Prospecto.findOne({ facebookId });
+    return `Hola Mundo`+`\n, prospecto ${prospecto.nombre}`;
 }
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
