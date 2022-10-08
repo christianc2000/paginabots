@@ -8,8 +8,8 @@ const Sucursal = require('../models/Sucursal');
 const Promocion = require('../models/Promocion');
 const Detalle = require('../models/Detalle');
 
-const test = ( req, res ) => {
-    console.log( typeof new Date().toLocaleDateString() );
+const test = (req, res) => {
+    console.log(typeof new Date().toLocaleDateString());
     /* const detalle1 = new Detalle( { 
          producto: '634023d2a54aa79855c2a4d8', 
          promocion: '634024636cbda6ae9795c334'
@@ -18,90 +18,107 @@ const test = ( req, res ) => {
          producto: '634023d2a54aa79855c2a4d8', 
          promocion: '634024636cbda6ae9795c333'
      } );*/
+
+
+    /*const detalle3 = new Detalle({
+        producto: '6340cf868801b6eb51ea729b',
+        promocion: '6340d072e491eef98bff9ade'
+    });
+    detalle3.save();*/
     // detalle1.save();
     // detalle2.save();
     // promocion.save();
-    /* const promocion1 = new Promocion( { 
-         nombre: 'Paquete 1', 
-         descuento: '120', 
-         descripcion: 'Descuento del 10% por la compra del paquete',
-         cantidadSillas: '20',
-         cantidadMesas: '5'
-     } );
-     const promocion2 = new Promocion( { 
-         nombre: 'Paquete 2', 
-         descuento: '200', 
+    /* const promocion3 = new Promocion( { 
+         nombre: 'Paquete 3', 
+         descuento: '220', 
          descripcion: 'Descuento del 15% por la compra del paquete',
-         cantidadSillas: '10',
-         cantidadMesas: '5'
+         cantidadSillas: '20',
+         cantidadMesas: '0'
      } );
-     promocion1.save();
-     promocion2.save();
-     const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
-     const sucursal1 = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: 'Miraflores', calle: 'Naciones Unidas', numero: '10' } );
-     /*const producto1 = new Producto( { nombre: 'Mesa', precio: '100', forma: 'Redonda' } );
-     const producto2 = new Producto( { nombre: 'Mesa', precio: '70', forma: 'Cuadrada' } );
-     const producto3 = new Producto( { nombre: 'Silla', precio: '50' } );*/
-     /*sucursal.save();
-     sucursal1.save();*/
-     /*producto1.save(); 
-     producto2.save();   
-     producto3.save();*/
+     promocion3.save()*/
+    /*const promocion1 = new Promocion( { 
+        nombre: 'Paquete 1', 
+        descuento: '120', 
+        descripcion: 'Descuento del 10% por la compra del paquete',
+        cantidadSillas: '20',
+        cantidadMesas: '5'
+    } );
+    const promocion2 = new Promocion( { 
+        nombre: 'Paquete 2', 
+        descuento: '200', 
+        descripcion: 'Descuento del 15% por la compra del paquete',
+        cantidadSillas: '10',
+        cantidadMesas: '5'
+    } );
+    promocion1.save();
+    promocion2.save();
+    const sucursal = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: '6 de Mayo', calle: 'Bolivia', numero: '80' } );
+    const sucursal1 = new Sucursal( { departamento: 'Santa Cruz', municipio: 'El Torno', barrio: 'Miraflores', calle: 'Naciones Unidas', numero: '10' } );
+    /*const producto1 = new Producto( { nombre: 'Mesa', precio: '100', forma: 'Redonda' } );
+    const producto2 = new Producto( { nombre: 'Mesa', precio: '70', forma: 'Cuadrada' } );
+    const producto3 = new Producto( { nombre: 'Silla', precio: '50' } );*/
+    /*const producto4 = new Producto({nombre: 'Silla de madera', precio: '150'})
+    producto4.save();*/
+    /*sucursal.save();
+    sucursal1.save();*/
+    /*producto1.save(); 
+    producto2.save();   
+    producto3.save();*/
     // promocion.save();|
     // promocion1.save();|
     res.send('Bot prueba');
     console.log('Bot prueba');
 }
-const getWebHook = ( req, res ) => {
+const getWebHook = (req, res) => {
     const verifyToken = config.MY_VERIFY_TOKEN;
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
     const challengue = req.query['hub.challenge'];
-    if ( mode && token ) {
-        if ( mode === 'subscribe' && token === verifyToken ) {
+    if (mode && token) {
+        if (mode === 'subscribe' && token === verifyToken) {
             console.log(' webhook verificado ');
-            res.status( 200 ).send( challengue );
+            res.status(200).send(challengue);
         } else {
-            res.sendStatus( 403 );
+            res.sendStatus(403);
         }
     }
 }
-const postWebHook = ( req, res ) => {
+const postWebHook = (req, res) => {
     let data = req.body;
-    if ( data.object === "page" ) {
-        data.entry.forEach( pageEntry => {
-            pageEntry.messaging.forEach( messagingEvent => {
+    if (data.object === "page") {
+        data.entry.forEach(pageEntry => {
+            pageEntry.messaging.forEach(messagingEvent => {
                 if (messagingEvent.message) {
-                    console.log('mensaje: '+messagingEvent);
-                    receivedMessage( messagingEvent );
+                    console.log('mensaje: ' + messagingEvent);
+                    receivedMessage(messagingEvent);
                 } else {
-                    console.log( "Webhook received unknown messagingEvent: ", messagingEvent );
+                    console.log("Webhook received unknown messagingEvent: ", messagingEvent);
                 }
             });
         });
         res.sendStatus(200);
     } else {
-        res.sendStatus( 404 );
-    } 
+        res.sendStatus(404);
+    }
 
 }
-const receivedMessage = async( event ) => {
+const receivedMessage = async (event) => {
     let senderId = event.sender.id;
     let message = event.message;
     let messageText = message.text;
-    if ( messageText ) {
+    if (messageText) {
         console.log("1.MENSAJE DEL USUARIO: ", messageText);
         await sendDialogFlow(senderId, messageText);
     }
 }
-const sendDialogFlow = async( senderId, messageText ) => {
-    let respuesta = await detectIntent( config.GOOGLE_PROJECT_ID, senderId, messageText, '', 'es' );
+const sendDialogFlow = async (senderId, messageText) => {
+    let respuesta = await detectIntent(config.GOOGLE_PROJECT_ID, senderId, messageText, '', 'es');
     // console.log(respuesta)
     let peticion_body = {};
-    peticion_body = await controllerDialogFlow( respuesta, senderId );
-    envioMensaje( peticion_body );
+    peticion_body = await controllerDialogFlow(respuesta, senderId);
+    envioMensaje(peticion_body);
 }
-const envioMensaje = async( peticion_body ) => {
+const envioMensaje = async (peticion_body) => {
     console.log('Envio mensaje a messenger');
     request(
         {
@@ -120,12 +137,12 @@ const envioMensaje = async( peticion_body ) => {
 }
 const sendTypingOff = recipientId => {
     var messageData = {
-      recipient: {
-        id: recipientId,
-      },
-      sender_action: "typing_off",
+        recipient: {
+            id: recipientId,
+        },
+        sender_action: "typing_off",
     };
     // TODO:
     // callSendAPI(messageData);
 }
-module.exports ={ test, getWebHook, postWebHook };
+module.exports = { test, getWebHook, postWebHook };
