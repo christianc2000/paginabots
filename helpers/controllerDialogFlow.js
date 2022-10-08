@@ -17,7 +17,7 @@ const controllerDialogFlow = async (resultado, senderId) => {
     switch (resultado.intent.displayName) {
         case 'Direcciones':
             respuesta = await Direcciones(resultado.fulfillmentText);
-            peticion = await envio2(respuesta, senderId)
+            peticion = await envio(respuesta, senderId)
             break;
         case 'Saludo':
             respuesta = await Saludo(resultado, senderId);
