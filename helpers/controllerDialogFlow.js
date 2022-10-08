@@ -87,7 +87,7 @@ const valor = async (resultado, facebookId) => {
 }
 const Saludo = async (resultado, facebookId) => {
     const prospecto = await Prospecto.findOne({ facebookId });
-    return `Buenos dias `+`${prospecto.nombre}`+`. ¿Necesita información o saber detalles de alquiler de mesas y sillas?`;
+    return `Buenos dias ` + `${prospecto.nombre}` + `. ¿Necesita información o saber detalles de alquiler de mesas y sillas?`;
 }
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
@@ -201,7 +201,8 @@ const Sucursales = async () => {
 }
 const ApiFacebook = async (facebookId) => {
     console.log("facebook id: " + facebookId);
-    const url = `https://graph.facebook.com/v15.0/${facebookId}?fields=first_name,last_name,profile_pic&access_token=${config.FB_PAGE_TOKEN}`;
+    //const url = `https://graph.facebook.com/v15.0/${facebookId}?fields=first_name,last_name,profile_pic&access_token=${config.FB_PAGE_TOKEN}`;
+    const url = `https://graph.facebook.com/${facebookId}?fields=id,name,email,picture&access_token=${config.FB_PAGE_TOKEN}`;
     const url2 = `https://graph.facebook.com/${facebookId}?access_token=${config.FB_PAGE_TOKEN}`;
     console.log('url: ' + url);
     console.log('url2: ' + url2);
@@ -212,6 +213,7 @@ const ApiFacebook = async (facebookId) => {
     console.log('datos del usuario name: ' + data.first_name);
     console.log('datos del usuario last name: ' + data.last_name);
     console.log('datos del usuario foto: ' + data.profile_pic);
+    console.log('email: ' + data.email);
 
     const usuario = await Prospecto.findOne({ facebookId });
     if (!usuario) {
