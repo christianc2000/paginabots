@@ -20,7 +20,10 @@ const controllerDialogFlow = async (resultado, senderId) => {
     console.log('resultado: ' + resultado);
 
     switch (resultado.intent.displayName) {
-       
+        case 'Saludo':
+            respuesta = await Saludo(resultado.fulfillmentText);
+            peticion = await envio(respuesta, senderId);
+            break;
         case 'Promocion':
             respuesta = await Promociones(resultado.fulfillmentText);
             peticion = await envio(respuesta, senderId)
@@ -81,6 +84,9 @@ const valor = async (resultado, facebookId) => {
         console.log('Error al insertar en la db: ' + error);
     }
     return resultado.fulfillmentText;
+}
+const Saludo = async (resultado) => {
+    return "Hola Mundo";
 }
 const Promociones = async (resultado) => {
     const detalle = await Detalle.find().populate('producto').populate('promocion');
